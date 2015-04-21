@@ -1,0 +1,71 @@
+#document{
+
+		
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+
+}
+
+#noteForm{
+
+		border-style: double;
+		border-spacing: 10px;
+		padding: 15px;
+		background-color: #f5f1de;
+		box-shadow: 10px 10px 5px #888888;
+		border-radius: 10px;
+
+}
+#noteForm2{
+
+		border-style: double;
+		border-spacing: 10px;
+		padding: 15px;
+		background-color: #CDB7B5;
+		box-shadow: 10px 10px 5px #888888;
+		border-radius: 10px;
+
+}
+#noteForm3{
+
+
+
+		border-style: double;
+		border-spacing: 10px;
+		padding: 15px;
+		background-color: orange;
+		box-shadow: 10px 10px 5px #888888;
+		border-radius: 10px;
+
+}
+
+ #body {
+
+		background-color: #FFCC99;
+
+}
+
+#tableOne{
+       
+	   background: url(http://timvandevall.com/wp-content/uploads/2013/10/Printable-Notebook-Paper-04.jpg);
+	   background-color: white;
+	   box-shadow: 10px 10px 5px #888888;
+	   border-radius: 10px;
+
+
+}
+
+
+div.wrapper{
+	min-height: 100%;
+	width:100%;
+	padding: 10px;
+
+
+}
+
+#foot{
+background-color: #8B5742;
+
+}
