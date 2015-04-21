@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+  <meta charset="utf-8">
+	<title>NoteTaker-By Brittany Foster</title>
+	<link rel="stylesheet" type="text/css" href="determiner.css">
+	<link rel="stylesheet" type="text/css" href="animation.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  	<script type="text/javascript" src="htmltable_export/tableExport.js"></script>
+	<script type="text/javascript" src="htmltable_export/jquery.base64.js"></script>
+	<script type="text/javascript" src="htmltable_export/html2canvas.js"></script>
+	<script type="text/javascript" src="htmltable_export/jspdf/libs/sprintf.js"></script>
+	<script type="text/javascript" src="htmltable_export/jspdf/jspdf.js"></script>
+	<script type="text/javascript" src="htmltable_export/jspdf/libs/base64.js"></script>
+	
+		<script type="text/javaScript">	
+		$(document).ready(function(){
+				//used for Jquery Export Button
+		});
+		</script>
+  	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+
+
+</head>
+
+
+	<body id="body">
+		<!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img class="img-circle" src=img/notes.png alt="" width="50px" height="50px" align="left">
+                <a class="navbar-brand" href="#page-top">NoteTaker</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#noteForm">Note App</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+<header>
+			<br><br><br>
+			<!-- About Section -->
+    <section class="success" id="about">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                  
+                    <h2 style="color:#FF5333;">About</h2>
+                    <hr class="star-light">
+
+                </div>
+            </div>
+           <div class="jumbotron">
+             <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                 
+                    <p style="color:gray"> <img class="img-responsive" src="img/task_notes.png" height="700px" width="300px" align="left">Using HTML, CSS, Javascript and Javascript libraries, such as Angular and Bootstrap, NoteTaker was created to provide users with an easy and efficient alternative to produce and store notes. Whether you need to create an outline for a research document or jot-down information from a communication or lecture, NoteTaker is the perfect platform for quick notetaking. For easy scanning and readability, feel free to add color by clicking on the "add color button".</p> 
+                    
+                </div>
+                <div class="col-lg-4">
+                    <p style="color:gray">Once the user has completed the note-taking process, he or she has the option to either copy-and-paste the notes into a word document processor or export the notes to a png image - the choice is yours! To get started, begin typing your notes in the respective text fields and the notes will appear on the right in REAL TIME. Don't worry about formatting, NoteTaker has you covered!</p>
+                    <h6>* Export button does not work in Safari. A notecard gallery and additional export options coming soon!</h6>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                      <!-- About Section  <a href="#" class="btn btn-lg btn-outline"> View Resume -->
+                        
+                    </a>
+                  </div>
+                
+                </div>
+            </div>
+        </div>
+    </section>	
+</header><br><br>
+       <div class="col-lg-12 text-center">
+			<h2 style="color:#FF5333;">Take Your Notes</h2><hr>
+		</div>
+     <!-- Note Section ( forms for the note cards in the Note Application) -->
+     
+
+		<div class="row">
+		  <div ng-app="myApp" ng-controller="noteCtrl">
+			<div class="col-sm-12 col-md-6 col-lg-6">
+
+                <!-- Note Card 1 (Name, Professor, Title, etc.) -->
+
+                 <form id="noteForm"class="pure-form pure-form-stacked" ng-hide="myVar">
+    			
+        			<input id="setName" ng-model="Name" class="pure-input-1" placeholder="Name">
+       				 <input id="setClass" ng-model="Text" class="pure-input-1" placeholder="Class(i.e Hisrory 101)">
+       				 <input  id="setProfessor" ng-model="Professor" class="pure-input-1" placeholder="Prof. John Doe">
+   	       			 <input ng-model="Title" class="pure-input-1" placeholder="Title">
+       				 <textarea  ng-model="notes" class="pure-input-1" rows="9" ng-click="intro()"  placeholder="Introduction"></textarea>
+    				<button align="center" type="submit" class="pure-button pure-input-1-2-3 pure-button-primary">Clear</button> <button id="nextCardButton"  ng-click="toggle()" type="submit" class="pure-button pure-input-1-2-3 pure-button-primary">Next Note Card</button>
+               </form>
+
+                <!-- Note Card 2 (1, 1a, 1b, 1c, etc.) -->
+               <form id="noteForm2"class="pure-form pure-form-stacked" ng-hide="myVar2">
+    			 
+        			
+       				 <textarea  ng-model="note1" ng-click="output1()" class="pure-input-1" rows="5"  placeholder="1.)"></textarea>
+       				 <textarea  ng-model="note1a" ng-click="output1a()" class="pure-input-1" rows="7"  placeholder="a.)"></textarea>
+       				 <textarea  ng-model="note1b" ng-click="output1b()" class="pure-input-1" rows="7"  placeholder="b.)"></textarea>
+       				 <textarea  ng-model="note1c" ng-click="output1c()" class="pure-input-1" rows="7"  placeholder="c.)"></textarea>
+       				 <textarea  ng-model="note1d" ng-click="output1d()" class="pure-input-1" rows="7"  placeholder="d.)"></textarea>
+       				 <textarea  ng-model="note1e" ng-click="output1e()" class="pure-input-1" rows="7"  placeholder="e.)"></textarea>
+    				<button align="center" ng-click="toggle()" type="submit" class="pure-button pure-input-1-2-3 pure-button-primary">Back</button> <button id="nextCardButton"  ng-click="toggle2()" type="submit" class="pure-button pure-input-1-2-3 pure-button-primary">Next Note Card</button> 
+               </form>
+
+                <!-- Note Card 3 (2, 2a, 2b, 2c, etc.) -->
+             
+                <form id="noteForm3"class="pure-form pure-form-stacked" ng-hide="myVar15">
+    			 
+        			
+       				 <textarea id="text2" ng-model="note2" ng-click="output2()" class="pure-input-1" rows="5"  placeholder="2.)"></textarea>
+       				 <textarea  ng-model="note2a" ng-click="output2a()" class="pure-input-1" rows="7"  placeholder="a.)"></textarea>
+       				 <textarea  ng-model="note2b" ng-click="output2b()" class="pure-input-1" rows="7"  placeholder="b.)"></textarea>
+       				 <textarea  ng-model="note2c" ng-click="output2c()" class="pure-input-1" rows="7"  placeholder="c.)"></textarea>
+       				 <textarea  ng-model="note2d" ng-click="output2d()" class="pure-input-1" rows="7"  placeholder="d.)"></textarea>
+       				 <textarea  ng-model="note2e" ng-click="output2e()" class="pure-input-1" rows="7"  placeholder="e.)"></textarea>
+    				<button align="center" ng-click="toggle2()" type="submit" class="pure-button pure-input-1-2-3 pure-button-primary">Back</button> 
+               </form>
+		   </div>
+
+       <!--binding data to table elements/ formatted in tables for export button-->
+
+	<div class="col-sm-12 col-md-6 col-lg-6">
+        <!-- Add Color Button using Javascript function -->
+		<button onclick="changeColor()">add color</button>
+        <!-- Export function using Jquery -->
+        <button onClick ="$('#tableOne').tableExport({type:'png',escape:'true'});"> Export To PNG</button>
+		<table width="545" height="380" id="tableOne">
+		  <div class ="wrapper">
+			 <tr><td float="30%" id="date"></td><tr>
+			 <tr><td>{{Name}}</td></tr>
+			 <tr><td>{{Text}}</td></tr>
+			 <tr><td>{{Professor}}</td></tr>
+			 <br><tr align="center"><td align="center"><h1 align="center"><strong>{{Title}}</strong></h1></td></tr>
+			 <tr><td> <h4 ng-hide="intro"> Abstract/Introduction:</h4></td></tr>
+					<tr><td>{{notes}}</td></tr>
+					<tr></tr>
+					<td id="one"><strong ng-hide="myVar3">1.)</strong> {{note1}}</td>
+					<tr><td id="a"><strong ng-hide="myVar4" style="margin-left:2em;">a.</strong> {{note1a}} </td></tr>
+					<tr><td id="b"><strong ng-hide="myVar5" style="margin-left:2em;">b.</strong> {{note1b}} </td></tr>
+					<tr><td id="c"><strong ng-hide="myVar6" style="margin-left:2em;">c.</strong> {{note1c}} </td></tr>
+					<tr><td id="d"><strong ng-hide="myVar7" style="margin-left:2em;">d.</strong> {{note1d}} </td></tr>
+					<tr><td id="e"><strong ng-hide="myVar8" style="margin-left:2em;">e.</strong> {{note1e}} </td></tr>
+					<tr></tr>
+
+					<td><strong ng-hide="myVar9" id="two">2.)</strong> {{note2}}</td>
+					<tr><td id="f"><strong ng-hide="myVar10" style="margin-left:2em;">a.</strong> {{note2a}} </td></tr>
+					<tr><td id="g"><strong ng-hide="myVar11" style="margin-left:2em;">b.</strong> {{note2b}} </td></tr>
+					<tr><td id="h"><strong ng-hide="myVar12" style="margin-left:2em;">c.</strong> {{note2c}} </td></tr>
+					<tr><td id="i"><strong ng-hide="myVar13" style="margin-left:2em;">d.</strong> {{note2d}} </td></tr>
+					<tr><td id="j"><strong ng-hide="myVar14" style="margin-left:2em;">e.</strong> {{note2e}} </td></tr>
+			   </div>
+      </table>
+          
+		</div>
+	 </div>
+
+   </div>
+
+
+              
+<!-- angular js functions-->
+		
+
+        <script>
+        var app = angular.module('myApp', []); //defines angular app
+        app.controller('noteCtrl', function($scope) {  //controls the angular app
+          //letter and numbers are hidden until user clicks on the textarea box
+            $scope.myVar = false;
+            $scope.myVar2 = true;
+            $scope.myVar15 = true;
+            $scope.myVar3 = true;
+            $scope.myVar4 = true;
+            $scope.myVar5 = true;
+            $scope.myVar6 = true;
+            $scope.myVar7 = true;
+            $scope.myVar8 = true;
+            $scope.myVar9 = true;
+            $scope.myVar10 = true;
+            $scope.myVar11 = true;
+            $scope.myVar12 = true;
+            $scope.myVar13 = true;
+            $scope.myVar14 = true;
+            $scope.intro = true;
+
+        //determines whether a notecard is visible or hidden
+            $scope.toggle = function() {
+
+                $scope.myVar = !$scope.myVar;
+                $scope.myVar2 = !$scope.myVar2;
+
+            }
+            $scope.toggle2 = function() {
+                 $scope.myVar2 = !$scope.myVar2;
+                 $scope.myVar15 = !$scope.myVar15;
+
+
+            }
+
+             $scope.intro = function() {
+
+                $scope.intro = !$scope.intro;
+
+
+            }
+
+        //the following function removes/adds numbers or letters
+          $scope.output1 = function() {
+                $scope.myVar3 = !$scope.myVar3;
+
+            }
+
+
+         $scope.output1a = function() {
+                $scope.myVar4 = !$scope.myVar4;
+
+            }
+         $scope.output1b = function() {
+                $scope.myVar5 = !$scope.myVar5;
+
+            }
+         $scope.output1c = function() {
+                $scope.myVar6 = !$scope.myVar6;
+
+            }
+         $scope.output1d = function() {
+                $scope.myVar7 = !$scope.myVar7;
+
+            }
+         $scope.output1e = function() {
+                $scope.myVar8 = !$scope.myVar8;
+
+            }
+          $scope.output2 = function() {
+                $scope.myVar9 = !$scope.myVar9;
+
+            }
+         $scope.output2a = function() {
+                $scope.myVar10 = !$scope.myVar10;
+
+            }
+         $scope.output2b = function() {
+                $scope.myVar11 = !$scope.myVar11;
+
+            }
+         $scope.output2c = function() {
+                $scope.myVar12 = !$scope.myVar12;
+
+            }
+         $scope.output2d = function() {
+                $scope.myVar13 = !$scope.myVar13;
+
+            }
+         $scope.output2e = function() {
+                $scope.myVar14 = !$scope.myVar14;
+
+            }
+
+        });
+</script>
+  <!--Footer-->
+
+		</section><br><br><br>
+
+		<footer id="foot">
+            <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Location</h3>
+                        <p>Chicago, IL 60611</p>
+                    </div>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Notaker Application 2015
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+		</footer>
+
+
+  <!--javascript functions-->
+			<script>
+					var d = new Date();
+		           document.getElementById("date").innerHTML=d.toDateString();
+		         
+
+
+            function changeColor(){
+              
+              document.getElementById("a").style.color="red";
+              document.getElementById("b").style.color="orange";
+              document.getElementById("c").style.color="#0C00F7";
+              document.getElementById("d").style.color="#00F78C";
+              document.getElementById("e").style.color="#DC2FF3";
+              document.getElementById("f").style.color="red";
+              document.getElementById("g").style.color="orange";
+              document.getElementById("h").style.color="#0C00F7";
+              document.getElementById("i").style.color="#00F78C";
+              document.getElementById("j").style.color="#DC2FF3";
+                  
+                  
+
+
+
+
+
+            }
+
+	             
+
+
+
+			</script>
+
+
+	</body>
+
+
+
+
+
+</html>
